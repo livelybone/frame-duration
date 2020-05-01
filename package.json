@@ -1,7 +1,7 @@
 {
   "name": "frame-duration",
-  "version": "1.0.1",
-  "description": "A lib for calculating the duration of frame dynamically, default is 1000 / 30",
+  "version": "1.1.0",
+  "description": "A lib for calculating the duration of frame dynamically, based on requestAnimationFrame, default is 1000 / 30. The actual duration will be calculated after 15 frames.",
   "main": "./lib/umd/index.js",
   "module": "./lib/es/index.js",
   "unpkg": "./lib/umd/index.js",

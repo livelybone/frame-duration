@@ -1,12 +1,12 @@
 # frame-duration
 [![NPM Version](http://img.shields.io/npm/v/frame-duration.svg?style=flat-square)](https://www.npmjs.com/package/frame-duration)
 [![Download Month](http://img.shields.io/npm/dm/frame-duration.svg?style=flat-square)](https://www.npmjs.com/package/frame-duration)
-![gzip with dependencies: 1kb](https://img.shields.io/badge/gzip--with--dependencies-1kb-brightgreen.svg "gzip with dependencies: 1kb")
+![gzip with dependencies: 0.5kb](https://img.shields.io/badge/gzip--with--dependencies-0.5kb-brightgreen.svg "gzip with dependencies: 0.5kb")
 ![typescript](https://img.shields.io/badge/typescript-supported-blue.svg "typescript")
 
 [English Document](./README.md)
 
-A lib for calculating the duration of frame dynamically, default is 1000 / 30
+A lib for calculating the duration of frame dynamically, based on requestAnimationFrame, default is 1000 / 30. The actual duration will be calculated after 15 frames.
 
 ## repository
 https://github.com/livelybone/frame-duration.git
@@ -38,10 +38,15 @@ npm i -S frame-duration
 ```js
 import FrameDuration from 'frame-duration'
 
-const defaultDuration = 1000 / 45
-const frameDuration = new FrameDuration(defaultDuration)
+console.log(FrameDuration.duration) // -> 33.33
 
-console.log(frameDuration) // -> { duration: 16.66, times: 60, update: [function] }
+// 设置默认帧间隔。只在应用最初的时候设置默认
+FrameDuration.duration = 1000 / 60
+
+// 打印动态计算之后的帧间隔
+setTimeout(() => {
+  console.log(FrameDuration.duration) // -> 16.66
+}, 1000)
 ```
 
 在 HTML 文件中直接引用，你可以在 [CDN: unpkg](https://unpkg.com/frame-duration/lib/umd/) 看到你能用到的所有 js 脚本

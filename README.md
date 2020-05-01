@@ -1,12 +1,12 @@
 # frame-duration
 [![NPM Version](http://img.shields.io/npm/v/frame-duration.svg?style=flat-square)](https://www.npmjs.com/package/frame-duration)
 [![Download Month](http://img.shields.io/npm/dm/frame-duration.svg?style=flat-square)](https://www.npmjs.com/package/frame-duration)
-![gzip with dependencies: 1kb](https://img.shields.io/badge/gzip--with--dependencies-1kb-brightgreen.svg "gzip with dependencies: 1kb")
+![gzip with dependencies: 0.5kb](https://img.shields.io/badge/gzip--with--dependencies-0.5kb-brightgreen.svg "gzip with dependencies: 0.5kb")
 ![typescript](https://img.shields.io/badge/typescript-supported-blue.svg "typescript")
 
 [中文文档](./README-CN.md)
 
-A lib for calculating the duration of frame dynamically, default is 1000 / 30
+A lib for calculating the duration of frame dynamically, based on requestAnimationFrame, default is 1000 / 30. The actual duration will be calculated after 15 frames.
 
 ## repository
 https://github.com/livelybone/frame-duration.git
@@ -38,10 +38,15 @@ See what method or params you can use in [index.d.ts](./index.d.ts)
 ```js
 import FrameDuration from 'frame-duration'
 
-const defaultDuration = 1000 / 45
-const frameDuration = new FrameDuration(defaultDuration)
+console.log(FrameDuration.duration) // -> 33.33
 
-console.log(frameDuration) // -> { duration: 16.66, times: 60, update: [function] }
+// Set default duration. Make sure that this only run at the start of app
+FrameDuration.duration = 1000 / 60
+
+// Duration after dynamic calculate
+setTimeout(() => {
+  console.log(FrameDuration.duration) // -> 16.66
+}, 1000)
 ```
 
 Use in html, see what you can use in [CDN: unpkg](https://unpkg.com/frame-duration/lib/umd/)
