@@ -1,7 +1,7 @@
 # frame-duration
 [![NPM Version](http://img.shields.io/npm/v/frame-duration.svg?style=flat-square)](https://www.npmjs.com/package/frame-duration)
 [![Download Month](http://img.shields.io/npm/dm/frame-duration.svg?style=flat-square)](https://www.npmjs.com/package/frame-duration)
-![gzip with dependencies: kb](https://img.shields.io/badge/gzip--with--dependencies-kb-brightgreen.svg "gzip with dependencies: kb")
+![gzip with dependencies: 1kb](https://img.shields.io/badge/gzip--with--dependencies-1kb-brightgreen.svg "gzip with dependencies: 1kb")
 ![typescript](https://img.shields.io/badge/typescript-supported-blue.svg "typescript")
 
 [中文文档](./README-CN.md)
